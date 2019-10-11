@@ -5,13 +5,13 @@
 data = getfromtext("filepath/file.csv", delimiter=',')
 it should be [aaaa, bbbb, cccc, dddd], but actually [nan nan nan nan] 
     
-# 这是因为numpy在读取元素时，默认是按照float格式来读取的，对于不能转换为float类型的数据会读取为nan（not a number），对于留空的数据则显示为na（not available），为了正确的读取数据，可以通过增加参数：
-# dtype参数用来指定读取数据的格式，这里的U75表示将每一个数据都读取为75个byte的unicode数据格式
+这是因为numpy在读取元素时，默认是按照float格式来读取的，对于不能转换为float类型的数据会读取为nan（not a number），对于留空的数据则显示为na（not available），为了正确的读取数据，可以通过增加参数：
+dtype参数用来指定读取数据的格式，这里的U75表示将每一个数据都读取为75个byte的unicode数据格式
 data = getfromtext("filepath/file.csv", delimiter=',', dtype=U75)
 
 
 # pd.read_csv() 
-# 利用pandas导入csv
+利用pandas导入csv
 
 import pandas as pd
 data = pd.read_csv(filepath_or_buffer, sep=', ', delimiter=None, header='infer', names=None, )
